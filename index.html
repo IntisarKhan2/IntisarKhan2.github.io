@@ -27,11 +27,13 @@
             --bg-sidebar: #f8fafc;        
             --text-main: #334155;      
             --text-muted: #64748b;     
-            --accent: #b94625; /* That 'Terracotta' color from your example image */
+            --accent: #b94625; 
             --border: rgba(0,0,0,0.1);
         }
 
         * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -43,7 +45,7 @@
             min-height: 100vh;
         }
 
-        /* --- SIDEBAR (The Left Panel) --- */
+        /* --- SIDEBAR --- */
         nav {
             width: 280px;
             background-color: var(--bg-sidebar);
@@ -80,19 +82,25 @@
             text-transform: uppercase;
             font-size: 0.9rem;
             letter-spacing: 1px;
-            transition: color 0.3s;
-            font-family: 'Oswald', sans-serif; /* Formal Heading Font */
+            transition: all 0.3s;
+            font-family: 'Oswald', sans-serif;
+            display: block;
+            padding: 5px 0;
         }
-        .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+        
+        .nav-links a:hover, .nav-links a.active { 
+            color: var(--accent); 
+            transform: scale(1.1);
+        }
 
         .social-icons { margin-top: auto; display: flex; gap: 15px; }
         .social-icons a { color: var(--text-muted); font-size: 1.2rem; transition: color 0.3s; }
         .social-icons a:hover { color: var(--accent); }
 
-        /* --- MAIN CONTENT (The Right Panel) --- */
+        /* --- MAIN CONTENT --- */
         main {
             flex: 1;
-            margin-left: 280px; /* Same as sidebar width */
+            margin-left: 280px;
             padding: 60px 80px;
             max-width: 1200px;
         }
@@ -103,7 +111,6 @@
         h2 { font-family: 'Oswald', sans-serif; font-size: 2rem; color: var(--accent); margin-top: 60px; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 1px; }
         p { color: var(--text-muted); font-size: 1.05rem; max-width: 800px; margin-bottom: 20px; }
 
-        /* Theme Toggle (Top Right) */
         .theme-toggle {
             position: fixed; top: 30px; right: 40px;
             background: var(--bg-sidebar); border: 1px solid var(--border);
@@ -112,15 +119,12 @@
         }
         .theme-toggle:hover { color: var(--accent); transform: rotate(15deg); }
 
-        /* --- COMPONENTS --- */
-        
-        /* Items (Education/Projects) */
+        /* Items & Grids */
         .item { margin-bottom: 40px; border-left: 3px solid var(--border); padding-left: 20px; transition: border-color 0.3s; }
         .item:hover { border-left-color: var(--accent); }
         .item h3 { margin: 0 0 5px 0; font-size: 1.4rem; }
         .item .meta { font-size: 0.9rem; color: var(--accent); font-weight: 500; margin-bottom: 10px; display: block; }
 
-        /* Skills Grid */
         .skills-grid { display: flex; flex-wrap: wrap; gap: 10px; }
         .skill-tag {
             background: var(--bg-sidebar); border: 1px solid var(--border);
@@ -128,7 +132,6 @@
             border-radius: 4px; font-weight: 500;
         }
 
-        /* Image Gallery for Awards */
         .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .gallery img {
             width: 100%; height: 200px; object-fit: cover;
@@ -137,7 +140,6 @@
         }
         .gallery img:hover { opacity: 1; transform: translateY(-5px); border-color: var(--accent); }
 
-        /* Lightbox */
         #lightbox {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center;
@@ -145,7 +147,7 @@
         #lightbox img { max-width: 90%; max-height: 90%; border-radius: 5px; }
         #lightbox-close { position: absolute; top: 30px; right: 40px; color: white; font-size: 3rem; cursor: pointer; }
 
-        /* --- MOBILE RESPONSIVE --- */
+        /* Mobile */
         @media (max-width: 768px) {
             body { flex-direction: column; }
             nav { width: 100%; height: auto; position: relative; padding: 20px; border-right: none; border-bottom: 1px solid var(--border); }
@@ -169,7 +171,7 @@
         <img src="Profile.jpg" alt="Intisar" class="profile-img">
         
         <ul class="nav-links">
-            <li><a href="#about">About</a></li>
+            <li><a href="#about" class="active">About</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
@@ -178,9 +180,9 @@
         </ul>
 
         <div class="social-icons">
-            <a href="https://github.com/IntisarKhan2"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/intisar-rahman-khan-909044372/"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fas fa-camera"></i></a>
+            <a href="https://github.com/IntisarKhan2" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/intisar-rahman-khan-909044372/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+            <a href="#" target="_blank" rel="noopener noreferrer"><i class="fas fa-camera"></i></a>
         </div>
     </nav>
 
@@ -229,7 +231,7 @@
                 <span class="skill-tag">Data Structures</span>
                 <span class="skill-tag">HTML5 & CSS3</span>
                 <span class="skill-tag">Flutter (Basics)</span>
-                <span class="skill-tag">Adobe Lightroom</span>
+                <span class="skill-tag">Photography</span>
             </div>
         </section>
 
@@ -246,7 +248,7 @@
                 <h3>Competitive Programming</h3>
                 <span class="meta">C++ • Algorithms</span>
                 <p>Active solver on Codeforces. I regularly participate in contests to sharpen my problem-solving skills and understanding of complex algorithms.</p>
-                <a href="https://codeforces.com/profile/Intisar_Khan" style="color: var(--accent); text-decoration: none; font-weight: bold;">View Codeforces Profile &rarr;</a>
+                <a href="https://codeforces.com/profile/Intisar_Khan" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none; font-weight: bold;">View Codeforces Profile &rarr;</a>
             </div>
 
             <div class="item" data-aos="fade-up" data-aos-delay="200">
@@ -267,7 +269,7 @@
             </div>
         </section>
 
-        <section id="contact" style="margin-bottom: 50px;">
+        <section id="contact" style="margin-bottom: 250px;">
             <h2 data-aos="fade-right">Contact</h2>
             <p>I am currently open to internship opportunities and collaborations.</p>
             <a href="mailto:rahman.intisarkhan@gmail.com" 
@@ -285,6 +287,28 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 800, once: true });
+
+        // Scrollspy
+        window.addEventListener('scroll', () => {
+            let current = "";
+            const sections = document.querySelectorAll("section");
+            
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            if (window.scrollY < 100) current = "about";
+
+            document.querySelectorAll(".nav-links a").forEach((li) => {
+                li.classList.remove("active");
+                if (li.getAttribute("href").includes(current)) {
+                    li.classList.add("active");
+                }
+            });
+        });
 
         // Lightbox Logic
         function openLightbox(src) {
