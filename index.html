@@ -54,7 +54,7 @@
             min-height: 100vh;
         }
 
-        /* --- SIDEBAR --- */
+        /* --- SIDEBAR (Updated to remove scrollbar) --- */
         nav {
             width: 300px;
             background-color: var(--bg-sidebar);
@@ -67,7 +67,9 @@
             padding: 40px 30px; 
             border-right: 1px solid var(--border);
             z-index: 100;
-            overflow-y: auto;
+            
+            /* THIS REMOVES THE SLIDE BAR */
+            overflow: hidden; 
         }
 
         .profile-img {
@@ -161,7 +163,7 @@
         }
         .skill-tag:hover { color: var(--accent); border-color: var(--accent); background: var(--card-hover); }
 
-        /* --- NEW: LIST VIEW FOR ACHIEVEMENTS --- */
+        /* --- LIST VIEW FOR ACHIEVEMENTS --- */
         .achievement-list { display: flex; flex-direction: column; gap: 15px; }
         
         .achievement-item {
@@ -193,7 +195,7 @@
             padding: 8px 16px;
             border-radius: 4px;
             transition: all 0.2s;
-            white-space: nowrap; /* Prevents text breaking */
+            white-space: nowrap; 
         }
         .ach-link:hover {
             background: var(--accent);
@@ -203,14 +205,13 @@
         /* Mobile */
         @media (max-width: 900px) {
             body { flex-direction: column; }
-            nav { width: 100%; height: auto; position: relative; padding: 20px; border-right: none; border-bottom: 1px solid var(--border); flex-direction: row; justify-content: space-between; align-items: center; }
+            nav { width: 100%; height: auto; position: relative; padding: 20px; border-right: none; border-bottom: 1px solid var(--border); flex-direction: row; justify-content: space-between; align-items: center; overflow: visible; }
             nav .profile-img { width: 50px; height: 50px; margin: 0; border-width: 2px; }
             nav .nav-links { display: none; }
             main { margin-left: 0; padding: 40px 20px; }
             h1 { font-size: 2.2rem; }
             .theme-toggle { top: 80px; right: 20px; } 
             
-            /* Stack achievement items on small screens */
             .achievement-item { flex-direction: column; align-items: flex-start; gap: 15px; }
             .ach-link { width: 100%; text-align: center; }
         }
